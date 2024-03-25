@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  max-width: 420px;
+  min-width: 360px;
+  box-shadow: var(--medium-shadow);
+  transition: scale 0.3s ease-in-out;
+}
+
+.widget {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+}
+
+.header {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  background-color: var(--active-background);
+  color: var(--active-foreground);
+  padding: 0.5rem 1rem;
+  margin: 0;
+  border-radius: 5px 5px 0 0;
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 28px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.content {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  visibility: hidden;
+  padding: 1rem;
+}
+
+.settings {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  visibility: hidden;
+  padding: 1rem;
+}
+
+.footer {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  display: none;
+  text-align: right;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+}
+
+.displayed {
+  display: block;
+}
+
+.visible {
+  visibility: visible;
+}
+
+@media (hover: hover) {
+  :host:hover {
+    scale: 1.02;
+  }
+}

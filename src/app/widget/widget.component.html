@@ -1,0 +1,34 @@
+<div
+  class="widget"
+  tabindex="0"
+  *transloco="let t; read: 'widget'"
+  (onfocusout)="focusout()"
+>
+  <div class="header">
+    <h3>{{ title() }}</h3>
+    <!-- <div
+      tabindex="0"
+      class="icon-button"
+      [ngClass]="{ visible: enableSettings() }"
+      (click)="toggleSettings()"
+    >
+      <mat-icon>settings</mat-icon>
+    </div> -->
+    <button
+      class="icon-button"
+      (click)="toggleSettings()"
+      [ngClass]="{ visible: enableSettings() }"
+    >
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>
+  <div class="content" [ngClass]="{ visible: !showSettings() }">
+    <ng-content select="[content]"></ng-content>
+  </div>
+  <div class="settings" [ngClass]="{ visible: showSettings() }">
+    <ng-content select="[settings]"></ng-content>
+  </div>
+  <div class="footer" [ngClass]="{ displayed: enableShowMore() }">
+    <a href="#" (click)="showMore.emit()">{{ t("goto-content") }}</a>
+  </div>
+</div>
